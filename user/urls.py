@@ -7,5 +7,6 @@ urlpatterns = [
     path('Transfer/',views.transfer,name="User Dashboard"),
     path('MyProfile/',views.my_profile,name="User Profile"),
     path('DepositMoney/',views.deposit,name="User Profile"),
+    
 
 ]

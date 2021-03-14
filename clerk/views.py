@@ -37,3 +37,31 @@ def create_user(request):
 
 
     return render(request,"create_user.html",{})
+
+
+
+def search(request):
+
+    context = {}
+
+    if request.method == 'POST':
+        name = request.POST['username']
+
+        user = User.objects.get(user_name=name)
+
+        if user:
+            context['mydata'] = user
+            print(user.user_name)
+            return render(request,"update_user.html",context)
+        else:
+            print("Bhag")
+
+
+
+
+
+    return render(request,"search_user.html",{})
+
+
+def update(request):
+    pass

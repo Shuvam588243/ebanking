@@ -1,0 +1,51 @@
+{% extends 'clerk_dashboard.html' %}
+{% block content %}
+  <div class="container" style="margin-left:500px; margin-top: 70px;">
+    <div class="row">
+      <div class="col-4">
+        <div class="card text-black">
+          <div class="card-header bg-primary text-white"><h4>Add User</h4></div>
+          <div class="card-body">
+            <p class="card-text">
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+    
+    
+                      <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username">
+                        
+                      </div>
+    
+
+    
+                      <div class="form-group">
+                    
+                        <a type="submit" class="form-control bg-primary text-white" href="{% url '/UpdateUser' user_name %}" name="submit">Search </a>
+                        
+                      </div>
+    
+    
+                      
+    
+                    </fieldset>
+                  </form>
+    
+    
+    
+
+
+
+
+
+
+
+            </p>
+          </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      
+{% endblock content %}

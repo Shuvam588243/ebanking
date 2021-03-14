@@ -19,16 +19,14 @@ def index(request):
             print("Invalid")
 
        
-        
-
-
-        
-
-
-
-
-
     return render(request,"index.html",{})
+
+
+        
+
+
+
+
 
 def dashboard(request):
     return render(request,"dashboard.html",{})
@@ -42,5 +40,6 @@ def my_profile(request):
 
 def deposit(request):
     return render(request,"deposit.html",{})
+
 
 
