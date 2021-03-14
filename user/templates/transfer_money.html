@@ -1,0 +1,132 @@
+{% extends 'clerk_dashboard.html' %}
+{% block content %}
+  <div class="container" style="margin-left:100px; margin-top: 30px;">
+    <div class="row">
+      <div class="col-12">
+        <div class="card text-black mb-3">
+          <div class="card-header bg-primary text-white"><h4>Deposit Money</h4></div>
+          <div class="card-body">
+            <p class="card-text">
+                <form method="post">
+                {% csrf_token %}
+                <fieldset>
+
+
+                
+                     <div class="row">
+                         <div class="col">
+                            <div class="form-group">
+                                <label for="username"> Username</label>
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                                
+                              </div>
+            
+            
+                              <div class="form-group">
+                                <label for="fullname">User Full Name</label>
+                                <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Fullname">
+                                
+                              </div>
+            
+            
+                              <div class="form-group">
+                                <label for="acnum">Account Number</label>
+                                <input type="text" class="form-control" id="acnum" name="acnum" placeholder="Account Number">
+                                
+                                
+                              </div>
+
+
+                              <div class="form-group">
+                                <label for="phone">Current Balance</label>
+                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number">
+                                
+                              </div>
+
+                              
+                         </div>
+
+                         <div class="col">
+
+                            <div class="form-group">
+                                <label for="email">Enter Reciever Name</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                
+                              </div>
+            
+            
+                              <div class="form-group">
+                                <label for="acnum">Enter Reciever Account Number</label>
+                                <input type="text" class="form-control" id="acnum" name="acnum" placeholder="Account Number">
+                                
+                              </div>
+            
+            
+            
+                              <div class="form-group">
+                                <label for="balance">Enter Balance</label>
+                                <input type="text" class="form-control" id="balance" name="balance" placeholder="Email">
+                                
+                              </div>
+            
+            
+            
+                              <div class="form-group">
+                
+                                <input type="submit" class="form-control bg-primary text-white"  name="submit" value="Pay Money">
+                                
+                              </div>
+
+                         </div>
+                     </div>
+             
+
+
+                 
+
+
+                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  
+
+
+                  
+
+                </fieldset>
+
+</form>
+
+
+
+
+
+
+
+
+            </p>
+          </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      
+{% endblock content %}

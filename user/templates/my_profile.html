@@ -1,0 +1,136 @@
+
+{% extends 'clerk_dashboard.html' %}
+{% block content %}
+  <div class="container" style="margin-left:100px; margin-top: 30px;">
+    <div class="row">
+      <div class="col-12">
+        <div class="card text-black mb-3">
+         
+          <div class="card-body">
+            <p class="card-text">
+                <form method="post">
+                {% csrf_token %}
+                <fieldset>
+
+
+                
+                     <div class="row">
+                         <div class="col">
+                            <div class="form-group">
+                                <label for="username">Enter Username</label>
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                                
+                              </div>
+            
+            
+                              <div class="form-group">
+                                <label for="fullname">Enter User Full Name</label>
+                                <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Fullname">
+                                
+                              </div>
+            
+            
+                              <div class="form-group">
+                                <label for="address">Enter User Address</label>
+                                <textarea class="form-control" id="address" name="address" placeholder="Address"> </textarea>
+                                
+                              </div>
+
+
+                              <div class="form-group">
+                                <label for="phone">Enter User Phone Number</label>
+                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number">
+                                
+                              </div>
+
+                              
+                         </div>
+
+                         <div class="col">
+
+                            <div class="form-group">
+                                <label for="email">Enter User Email</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                
+                              </div>
+            
+            
+                              <div class="form-group">
+                                <label for="acnum">Enter User Account Number</label>
+                                <input type="text" class="form-control" id="acnum" name="acnum" placeholder="Account Number">
+                                
+                              </div>
+            
+            
+            
+                              <div class="form-group">
+                                <label for="balance">Enter User Current Balance</label>
+                                <input type="text" class="form-control" id="balance" name="balance" placeholder="Current Balance">
+                                
+                              </div>
+            
+            
+            
+                              <div class="form-group">
+                                <label for="password">Enter User Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                                
+                              </div>
+
+                         </div>
+                     </div>
+             
+
+
+                 
+
+
+                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  <div class="form-group">
+                
+                   
+                    
+                  </div>
+
+
+                  
+
+                </fieldset>
+
+</form>
+
+
+
+
+
+
+
+
+            </p>
+          </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      
+{% endblock content %}
