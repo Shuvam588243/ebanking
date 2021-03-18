@@ -1,5 +1,5 @@
-{% extends 'clerk_dashboard.html' %}
-{% block content %}
+{% extends 'dashboard.html' %}
+{% block user_content %}
   <div class="container" style="margin-left:100px; margin-top: 30px;">
     <div class="row">
       <div class="col-12">
@@ -17,21 +17,21 @@
                          <div class="col">
                             <div class="form-group">
                                 <label for="username"> Username</label>
-                                <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="{{mydata.user_name}}">
                                 
                               </div>
             
             
                               <div class="form-group">
                                 <label for="fullname">User Full Name</label>
-                                <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Fullname">
+                                <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Fullname" value="{{mydata.fullname}}">
                                 
                               </div>
             
             
                               <div class="form-group">
                                 <label for="acnum">Account Number</label>
-                                <input type="text" class="form-control" id="acnum" name="acnum" placeholder="Account Number">
+                                <input type="text" class="form-control" id="acnum" name="acnum" placeholder="Account Number" value="{{mydata.account_number}}">
                                 
                                 
                               </div>
@@ -39,7 +39,7 @@
 
                               <div class="form-group">
                                 <label for="phone">Current Balance</label>
-                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number">
+                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number" value="{{mydata.current_balance}">
                                 
                               </div>
 
@@ -48,24 +48,26 @@
 
                          <div class="col">
 
+                          <div class="form-group">
+                            <label for="acnum">Enter Reciever Account Number</label>
+                            <input type="text" class="form-control" id="acnum" name="acnum" placeholder="Account Number">
+                            
+                          </div>
+
                             <div class="form-group">
-                                <label for="email">Enter Reciever Name</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                <label for="rname">Enter Reciever Name</label>
+                                <input type="email" class="form-control" id="rname" name="rname" placeholder="Reciever Name">
                                 
                               </div>
             
             
-                              <div class="form-group">
-                                <label for="acnum">Enter Reciever Account Number</label>
-                                <input type="text" class="form-control" id="acnum" name="acnum" placeholder="Account Number">
-                                
-                              </div>
+                      
             
             
             
                               <div class="form-group">
-                                <label for="balance">Enter Balance</label>
-                                <input type="text" class="form-control" id="balance" name="balance" placeholder="Email">
+                                <label for="balance">Enter Amount</label>
+                                <input type="text" class="form-control" id="balance" name="balance" placeholder="Amount">
                                 
                               </div>
             
@@ -129,4 +131,4 @@
       </div>
       </div>
       
-{% endblock content %}
+{% endblock user_content %}

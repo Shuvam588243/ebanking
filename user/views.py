@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse
-from django.contrib.auth import authenticate,login
+from .models import User
 
 # Create your views here.
 def index(request):
@@ -28,18 +28,82 @@ def index(request):
 
 
 
-def dashboard(request):
-    return render(request,"dashboard.html",{})
+def dashboard(request,id):
+
+    
+    user = User.objects.get(id=id)
+    
+    context = {}
+
+    context['mydata'] = user
+
+    return render(request,"dashboard.html",context)
+   
+    
+    
 
 
-def transfer(request):
-    return render(request,"transfer_money.html",{})
+def transfer(request,id):
+    user = User.objects.get(id=id)
+    
+    context = {}
 
-def my_profile(request):
-    return render(request,"my_profile.html",{})
+    context['mydata'] = user
 
-def deposit(request):
-    return render(request,"deposit.html",{})
+    return render(request,"transfer_money.html",context)
+
+def my_profile(request,id):
+
+    user = User.objects.get(id=id)
+    
+    context = {}
+    
+
+    
+
+    
+
+    context['mydata'] = user
+
+    if request.method=='POST':
+        username = request.POST['username']
+        fullname = request.POST['fullname']
+        address = request.POST['address']
+        phone = request.POST['phone']
+        email = request.POST['email']
+        acnumber = request.POST['acnum']
+        curbal = request.POST['balance']
+        password = request.POST['password']
+
+        print(username,fullname,address,phone,email,acnumber,curbal,password)
+
+        user.user_name = username
+        user.fullname = fullname
+        user.address = address
+        user.user_phone = phone
+        user.user_email = email
+        user.account_number = acnumber
+        user.current_balance = curbal
+        user.password = password
+
+        user.save()
+
+        return render(request,"dashboard.html",context)
+        
+
+    return render(request,"my_profile.html",context)
+
+
+
+def deposit(request,id):
+    user = User.objects.get(id=id)
+    
+    context = {}
+
+    context['mydata'] = user
+
+    return render(request,"deposit.html",context)
+
 
 
 

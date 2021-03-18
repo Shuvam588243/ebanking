@@ -1,15 +1,42 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from user.models import User
+from .models import Clerk
+
 
 
 # Create your views here.
-def dashbaord(request):
-  return render(request,"clerk_dashboard.html",{})
+def dashbaord(request,id):
+
+    clerk = Clerk.objects.get(id=id)
+
+    context = {}
+
+    context['data'] = clerk
+
+    return render(request,"clerk_dashboard.html",context)
+
 
 def login(request):
-    mytext = "<h1> Clerk Login Here </h1>"
-    return HttpResponse(mytext)
+    context = {}
+
+    if request.method == 'POST':
+        cname = request.POST['username']
+        pwd = request.POST['password']
+
+        try:
+
+            userc = Clerk.objects.get(cuname = cname, cpassword = pwd)
+        
+        except Exception:
+            print("Invalid")
+            context['error'] = "Invalid Crentials"
+            return render(request,'clerk_index.html',context)
+
+        else:
+          return redirect('clerk_dashbaord',id=userc.id)
+        
+    return render(request,'clerk_index.html',{})
 
 def create_user(request):
     context = {}
@@ -49,12 +76,7 @@ def search(request):
 
         user = User.objects.get(user_name=name)
 
-        if user:
-            context['mydata'] = user
-            print(user.user_name)
-            return render(request,"update_user.html",context)
-        else:
-            print("Bhag")
+        
 
 
 
@@ -63,5 +85,8 @@ def search(request):
     return render(request,"search_user.html",{})
 
 
-def update(request):
-    pass
+def update(request,uname):
+    print(uname)
+    user = User.objects.get(user_name=uname)
+    print(user)
+    return render(request,"update_user.html",{})

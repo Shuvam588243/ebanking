@@ -2,11 +2,11 @@ from django.urls import path
 from user import views
 
 urlpatterns = [
-    path('',views.index,name="User Home Page"),
-    path('Dashboard/',views.dashboard,name="User Dashboard"),
-    path('Transfer/',views.transfer,name="User Dashboard"),
-    path('MyProfile/',views.my_profile,name="User Profile"),
-    path('DepositMoney/',views.deposit,name="User Profile"),
+    path('Dashboard/<id>',views.dashboard,name="user_dashboard"),
+    path('MyProfile/<id>',views.my_profile,name="profile"),
+    path('DepositMoney/<id>',views.deposit,name="deposit"),
+    path('TransferMoney/<id>',views.transfer,name="money_transfer"),
+    
     
 
 ]

@@ -1,6 +1,6 @@
 
-{% extends 'clerk_dashboard.html' %}
-{% block content %}
+{% extends 'dashboard.html' %}
+{% block user_content %}
   <div class="container" style="margin-left:100px; margin-top: 30px;">
     <div class="row">
       <div class="col-12">
@@ -18,28 +18,28 @@
                          <div class="col">
                             <div class="form-group">
                                 <label for="username">Enter Username</label>
-                                <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="{{mydata.user_name}}">
                                 
                               </div>
             
             
                               <div class="form-group">
                                 <label for="fullname">Enter User Full Name</label>
-                                <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Fullname">
+                                <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Fullname" value="{{mydata.fullname}}"> 
                                 
                               </div>
             
             
                               <div class="form-group">
                                 <label for="address">Enter User Address</label>
-                                <textarea class="form-control" id="address" name="address" placeholder="Address"> </textarea>
+                                <textarea class="form-control" id="address" name="address" placeholder="Address"> {{mydata.address}} </textarea>
                                 
                               </div>
 
 
                               <div class="form-group">
                                 <label for="phone">Enter User Phone Number</label>
-                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number">
+                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number" value="{{mydata.user_phone}}">
                                 
                               </div>
 
@@ -50,14 +50,14 @@
 
                             <div class="form-group">
                                 <label for="email">Enter User Email</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{mydata.user_email}}">
                                 
                               </div>
             
             
                               <div class="form-group">
                                 <label for="acnum">Enter User Account Number</label>
-                                <input type="text" class="form-control" id="acnum" name="acnum" placeholder="Account Number">
+                                <input type="text" class="form-control" id="acnum" name="acnum" placeholder="Account Number" value="{{mydata.account_number}}">
                                 
                               </div>
             
@@ -65,7 +65,7 @@
             
                               <div class="form-group">
                                 <label for="balance">Enter User Current Balance</label>
-                                <input type="text" class="form-control" id="balance" name="balance" placeholder="Current Balance">
+                                <input type="text" class="form-control" id="balance" name="balance" placeholder="Current Balance" value="{{mydata.current_balance}}">
                                 
                               </div>
             
@@ -73,7 +73,7 @@
             
                               <div class="form-group">
                                 <label for="password">Enter User Password</label>
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="{{mydata.password}}">
                                 
                               </div>
 
@@ -112,10 +112,12 @@
                     
                   </div>
 
-
+                 
                   
 
                 </fieldset>
+
+                <input type="submit" class="form-control bg-primary text-white"  name="submit" value="Update" style="width:150px;align-items: center; margin:auto"> 
 
 </form>
 
@@ -133,4 +135,4 @@
       </div>
       </div>
       
-{% endblock content %}
+{% endblock user_content %}

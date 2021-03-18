@@ -12,5 +12,6 @@ class User(models.Model):
     current_balance = models.CharField(max_length=10)
     password = models.CharField(max_length=20) 
 
-def __str__(self):
-    return self.user_name + " " + self.user_email
+    def __str__(self):
+         return self.user_name + " " + self.user_email
+         

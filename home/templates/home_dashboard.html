@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    .container{
+      margin-top: 50px;
+      margin-left: 950px;
+      
+    }
+    .card-header{
+      font-size: large;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">EBanking</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Contact Us</a>
+            </li>
+            <li class="nav-item dropdown active">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Login</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="{% url 'clerk_login' %}">Clerk Login</a>
+               
+              </div>
+            </li>
+        
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-4">
+    
+            <div class="card text-black mb-3" style="max-width: 20rem;">
+              <div class="card-header bg-primary text-white"><h4>User Login</h4></div>
+              <div class="card-body">
+                <p class="card-text">
+                    <form method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                      
+                      <h5 style="color:red;text-align: center;"> {{message}}</h5>
+
+                      <br>
+    
+                      <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username">
+                        
+                      </div>
+    
+    
+                      <div class="form-group">
+                        <label for="username">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password">
+                        
+                      </div>
+    
+                      <div class="form-group">
+                    
+                        <input type="submit" class="form-control bg-primary text-white"  name="submit" value="Login">
+                        
+                      </div>
+    
+    
+                      
+    
+                    </fieldset>
+                  </form>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      {% block home_content%}
+
+      {% endblock %}
+  
+</body>
+</html>
