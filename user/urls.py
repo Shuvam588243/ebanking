@@ -6,6 +6,7 @@ urlpatterns = [
     path('MyProfile/<id>',views.my_profile,name="profile"),
     path('DepositMoney/<id>',views.deposit,name="deposit"),
     path('TransferMoney/<id>',views.transfer,name="money_transfer"),
+    path('Logout/',views.logout,name="logout"),
     
     
 

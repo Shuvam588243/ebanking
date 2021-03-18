@@ -1,51 +1,53 @@
 {% extends 'clerk_dashboard.html' %}
 {% block content %}
-  <div class="container" style="margin-left:500px; margin-top: 70px;">
+  <div class="container"  style="margin-left:70px;margin-top: 40px;">
     <div class="row">
       <div class="col-4">
-        <div class="card text-black">
-          <div class="card-header bg-primary text-white"><h4>Add User</h4></div>
-          <div class="card-body">
-            <p class="card-text">
-                <form method="POST">
-                    {% csrf_token %}
-                    <fieldset>
-    
-    
-                      <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username">
-                        
-                      </div>
-    
-
-    
-                      <div class="form-group">
-                    
-                        <a type="submit" class="form-control bg-primary text-white text-center" href="{% url 'update_user' %}" name="submit">Search </a>
-                        
-                      </div>
-    
-    
-                      
-    
-                    </fieldset>
-                  </form>
-    
-    
-    
-
-
-
-
-
-
-
-            </p>
+        <form action="">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter Username">
+            <br>
+            <button type="submit" class="btn btn-primary" onclick="getuser()">Search</button>
           </div>
+          <br><br>
+
+          <div class="form-group">
+            <label for="acnum">Account Number</label>
+            <input type="text" class="form-control" id="acnum" placeholder="Enter Account Number">
+            <br>
+            <button type="submit" class="btn btn-primary"  onclick="getacc()" >  Search</button>
+          </div>
+        </form>
       </div>
+
+      <div class="col" id="table">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">User Name</th>
+              <th scope="col">Full Name</th>
+              <th scope="col">Account Number</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Email</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-active">
+              <th></th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <th scope="col"><button type="submit" class="btn btn-success btn-sm">  Edit</button></th>
+              <th scope="col"><button type="submit" class="btn btn-warning btn-sm">  Delete</button></th>
+            </tr>
+           
+          </tbody>
+        </table>
       </div>
-      </div>
-      </div>
-      
+    </div>
+  </div>
 {% endblock content %}

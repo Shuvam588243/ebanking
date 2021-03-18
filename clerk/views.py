@@ -20,7 +20,12 @@ def dashbaord(request,id):
 def login(request):
     context = {}
 
-    if request.method == 'POST':
+    if request.method == 'GET':
+        if request.session.has_key('id'):
+            id = request.session['id']
+            return redirect('clerk_dashboard',id=id)
+
+    elif request.method == 'POST':
         cname = request.POST['username']
         pwd = request.POST['password']
 
@@ -71,16 +76,6 @@ def search(request):
 
     context = {}
 
-    if request.method == 'POST':
-        name = request.POST['username']
-
-        user = User.objects.get(user_name=name)
-
-        
-
-
-
-
 
     return render(request,"search_user.html",{})
 
@@ -90,3 +85,26 @@ def update(request,uname):
     user = User.objects.get(user_name=uname)
     print(user)
     return render(request,"update_user.html",{})
+
+def logout(request):
+
+    try:
+        del request.session['id']
+        
+    except :
+        pass
+    return redirect('home')
+
+
+def byname(request,uname):
+
+    context = {}
+
+    user = User.objects.filter(user_name=uname)
+
+    context['mydata'] = user
+
+    print(context['mydata'])
+
+    #return HttpResponse("Done")
+    return render(request,'username_show.html',context)

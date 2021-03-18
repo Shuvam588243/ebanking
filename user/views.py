@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpResponse
 from .models import User
 
@@ -15,6 +15,7 @@ def index(request):
 
         if user :
             print("Login")
+            request.session['username'] = user.user_namepython 
         else:
             print("Invalid")
 
@@ -107,3 +108,11 @@ def deposit(request,id):
 
 
 
+def logout(request):
+
+    try:
+        del request.session['username']
+        del request.session['id']
+    except :
+        pass
+    return redirect('home')

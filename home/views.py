@@ -6,7 +6,14 @@ from user.models import User
 def index(request):
     context = {}
 
-    if request.method == 'POST':
+    if request.method == 'GET':
+        if request.session.has_key('id'):
+            id = request.session['id']
+            return redirect('user_dashboard',id=id)
+
+
+
+    elif request.method == 'POST':
         uname = request.POST['username']
         pwd = request.POST['password']
 
@@ -19,6 +26,8 @@ def index(request):
             return render(request,"home_dashboard.html",context)
         else:
              if user:
+                 request.session['username'] = user.user_name
+                 request.session['id'] = user.id
                  return redirect('user_dashboard',id=user.id)
 
 
